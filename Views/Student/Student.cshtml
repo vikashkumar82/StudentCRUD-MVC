@@ -1,0 +1,60 @@
+﻿
+@model StudentCRUD.context.Student
+@{
+    ViewBag.Title = "Student";
+}
+<style>
+    .error{
+        color:red;
+    }
+    
+   
+</style>
+@using (Html.BeginForm("AddStudent", "Student", FormMethod.Post))
+            {
+                <div class="container">
+                    <div class="student-form">
+                        <div class="row">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-6">
+                                <div class="studentForm">
+                                    <div class="textBox">
+                                        @Html.HiddenFor(x => x.ID)
+                                        <label>Name</label>
+                                        @Html.ValidationMessageFor(x => x.Name, "", new { @class = "error" })
+                                        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                                    </div>
+                                    <div class="textBox">
+                                        <label>Father Name</label>
+                                        @Html.ValidationMessageFor(x => x.Fname, "", new { @class = "error" })
+                                        @Html.TextBoxFor(x => x.Fname, new { @class = "form-control" })
+                                    </div>
+                                    <div class="textBox">
+                                        <label>Email</label>
+                                        @Html.ValidationMessageFor(x => x.Email, "", new { @class = "error" })
+                                        @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+                                    </div>
+                                    <div class="textBox">
+                                        <label>Mobile</label>
+                                        @Html.ValidationMessageFor(x => x.Phone, "", new { @class = "error" })
+                                        @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+                                    </div>
+                                    <div class="textBox">
+                                        <label>Description</label>
+                                        @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @rows = "5" })
+                                    </div>
+                                    <div class="textBox">
+                                        <button type="submit" class="btn btn-success">Submit</button>
+                                        <button type="reset" class="btn btn-danger">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            }
+
+
+
